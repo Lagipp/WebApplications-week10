@@ -44,38 +44,44 @@ function Header() {
 
     return (
 
-        <Suspense fallback={"PAGE IS LOADING..."}>
-
         <div>
 
             <h1> Header </h1>
 
-            {/*<Box sx={{ flexGrow: 1 }}>*/}
             <AppBar position="static">
                 <Toolbar variant="dense">
+
+                    <Button style={buttonStyle} component={RouterLink} to="/"> {t('Home')} </Button>
+                    <Button style={buttonStyle} component={RouterLink} to="/about"> {t('About')} </Button>
+
+
                     <Box sx={{ flexGrow: 1 }}>
                     <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
                     
                     </IconButton>
                     <Typography variant="h6" color="inherit" component="div">
 
-                        <Button style={buttonStyle} component={RouterLink} to="/"> {t('Home')} </Button>
-                        <Button style={buttonStyle} component={RouterLink} to="/about"> {t('About')} </Button>
-
                     </Typography>
+
                     </Box>
 
-                        <Button style={buttonStyle} onClick={()=> changeLanguage("fi")}> FI </Button>
-                        <Button style={buttonStyle} onClick={()=> changeLanguage("en")}> EN </Button>
+                        <Button id="fi" style={buttonStyle} onClick={()=> changeLanguage("fi")}> FI </Button>
+                        <Button id="en" style={buttonStyle} onClick={()=> changeLanguage("en")}> EN </Button>
 
                 </Toolbar>
             </AppBar>
-            {/*</Box>*/}
 
         </div>
 
-        </Suspense>
     )
 }
 
-export default Header
+//export default Header
+
+export default function App() {
+    return(
+        <Suspense fallback="Page is loading...">
+            <Header />
+        </Suspense>
+    )
+}
