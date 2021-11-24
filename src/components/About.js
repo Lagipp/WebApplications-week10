@@ -44,7 +44,10 @@ function About() {
 
     if (title)
     {
-        listItems = title.map((listItem) => <li key={ listItem.id }> { listItem.title } </li>)
+        listItems = title.map((listItem) => 
+        <li key={ listItem.id }> 
+            { listItem.title } 
+        </li>)
     }
 
     return (
