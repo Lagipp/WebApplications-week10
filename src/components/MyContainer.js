@@ -9,21 +9,18 @@ import MyHOC from './MyHOC';
 
 function MyContainer() {
 
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
 
     const Component = ({ name }) => {
         return <div> Hello { name }! </div>;
     }
 
 
-
-    //const wrappedWithName = MyHOC(Component, { name: "Miika"} );
-
     return (
         <div>
             <h2> MyContainer </h2>
             <p> {t('This is the front page')} </p>
-            {/*<p> { MyHOC(Component, { name: "Miika"} ) } </p>*/}
+            <p> { MyHOC(Component, { name: "Miika"} ) } </p>
             
         </div>
     )
